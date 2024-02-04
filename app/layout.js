@@ -3,7 +3,6 @@ import './globals.css'
 import "bootstrap/dist/css/bootstrap.css";
 import Head from 'next/head';
 import Navbar_basic from './componenets/Navbar';
-import liff from '@line/liff';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,9 +12,7 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
-  liff.init({
-    liffId: '', // Use own liffId
-});
+  
 
   return (
     <html lang="en">
