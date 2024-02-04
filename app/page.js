@@ -18,7 +18,8 @@ function Main(){
     });
     
     return(
-        <h1>{profile.displayName}</h1>
+       <h1>name:</h1>
 
     );
 }
+export default Main;
