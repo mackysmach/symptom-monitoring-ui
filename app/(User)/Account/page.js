@@ -9,7 +9,7 @@ function Account() {
     const {lineProfile} = useMyContext();
     console.log(lineProfile);
     const user = {
-        name: {lineProfile.displayName},
+        name: lineProfile.displayName,
         photo: lineProfile.pictureUrl,
         pet_id: "001",
         user_id: lineProfile.userId
