@@ -1,3 +1,4 @@
+'use client'
 import liff from '@line/liff';
 
 function Main(){
