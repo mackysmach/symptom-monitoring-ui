@@ -18,7 +18,7 @@ function Main(){
     });
     
     return(
-        <h1></h1>
+        <h1>{profile.displayName}</h1>
 
     );
 }
