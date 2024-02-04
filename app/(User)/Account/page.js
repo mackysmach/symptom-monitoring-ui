@@ -1,32 +1,20 @@
-
+'use client'
 import Profile from "@/app/componenets/Userprofile";
 import { Row, Col, Container } from "react-bootstrap";
 import Addpetbutton from "@/app/componenets/Addpetbutton";
 import './page.css'
 import Petprofile from "@/app/componenets/Petprofile";
-import liff from '@line/liff';
-
-
-
+import { useMyContext } from '../../Handlers/Mycontext';
 function Account() {
-    liff
-    .init({
-        liffId: "2003132004-R8W9JPw8", // Use own liffId
-    })
-    .then(() => {
-        liff.login();
-        const profile = liff.getProfile();
-        console.log(profile);
-    })
-    .catch((err) => {
-        // Error happens during initialization
-        console.log(err.code, err.message);
-    });
+    const {lineProfile} = useMyContext();
+    console.log(lineProfile);
     const user = {
-        name: 'John Doe',
-        photo: '/teahub.io-bmw-car-wallpaper-375141.jpg',
-        pet_id: "001"
+        name: {lineProfile.displayName},
+        photo: lineProfile.pictureUrl,
+        pet_id: "001",
+        user_id: lineProfile.userId
     };
+    
     return (
         <Container sm={12}>
             <Row className="mb-5">
