@@ -1,25 +1,54 @@
 'use client'
-import liff from '@line/liff';
 
-function Main(){
+import liff from '@line/liff'
+import { useState, useEffect } from 'react'
 
-    liff
-    .init({
-        liffId: "2003132004-R8W9JPw8", // Use own liffId
-    })
-    .then(() => {
-        liff.login();
-        const profile = liff.getProfile();
-        console.log(profile);
-    })
-    .catch((err) => {
-        // Error happens during initialization
-        console.log(err.code, err.message);
-    });
-    
-    return(
-       <h1>name:</h1>
+const liffId ="2003132004-R8W9JPw8"
 
-    );
+const handleLogout = () => {
+    liff.logout()
+    window.location.reload()
 }
-export default Main;
+
+
+export default function Home() {
+    const [loading, setLoading] = useState(true)
+    const [lineProfile, setlineProfile] = useState({})
+
+    useEffect(() => {
+        const main = async () => {
+            await liff.init({ liffId })
+            if (!liff.isLoggedIn()) {
+                liff.login()
+                return
+            }
+
+            const lineProfile = await liff.getProfile()
+            setlineProfile(lineProfile)
+        }
+
+        try {
+            main()
+        } catch (err) {
+            console.log(err)
+        }
+    }, [])
+
+    // console.log(lineProfile)
+
+    if (loading) {
+        return <Loading />
+    }
+    return (
+        <>
+            <div>
+                <img src={lineProfile.pictureUrl} />
+                <h1>{lineProfile.displayName}</h1>
+                <h2>{lineProfile.userId}</h2>
+            </div>
+
+            <button onClick={handleLogout}>logout</button>
+        </>
+
+    )
+}
