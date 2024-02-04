@@ -4,9 +4,24 @@ import { Row, Col, Container } from "react-bootstrap";
 import Addpetbutton from "@/app/componenets/Addpetbutton";
 import './page.css'
 import Petprofile from "@/app/componenets/Petprofile";
+import liff from '@line/liff';
+
 
 
 function Account() {
+    liff
+    .init({
+        liffId: "2003132004-R8W9JPw8", // Use own liffId
+    })
+    .then(() => {
+        liff.login();
+        const profile = liff.getProfile();
+        console.log(profile);
+    })
+    .catch((err) => {
+        // Error happens during initialization
+        console.log(err.code, err.message);
+    });
     const user = {
         name: 'John Doe',
         photo: '/teahub.io-bmw-car-wallpaper-375141.jpg',
