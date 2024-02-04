@@ -12,7 +12,6 @@ const handleLogout = () => {
 
 
 export default function Home() {
-    const [loading, setLoading] = useState(true)
     const [lineProfile, setlineProfile] = useState({})
 
     useEffect(() => {
@@ -36,9 +35,7 @@ export default function Home() {
 
     // console.log(lineProfile)
 
-    if (loading) {
-        return <Loading />
-    }
+   
     return (
         <>
             <div>
