@@ -10,8 +10,9 @@ import { useEffect } from "react";
 
 
 function Account() {
-    const storedLineProfile = JSON.parse(sessionStorage.getItem('lineProfile')) || {};
-    
+    const storedLineProfile = typeof window !== 'undefined' 
+    ? JSON.parse(sessionStorage.getItem('lineProfile')) || {}
+    : {};    
     // Use storedLineProfile if available, otherwise use lineProfile from context
     const user = {
         name: storedLineProfile.displayName || lineProfile.displayName,
