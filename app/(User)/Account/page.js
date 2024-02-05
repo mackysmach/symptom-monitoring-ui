@@ -37,7 +37,7 @@ function Account() {
 //             console.log(err)
 //         }
 //     }, [])
-//     const {lineProfile} = useMyContext();
+    const {lineProfile} = useMyContext();
     // console.log(lineProfile);
     const user = {
         name: 'lineProfile.diplayName',
