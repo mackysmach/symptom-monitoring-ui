@@ -11,33 +11,33 @@ import { useEffect } from "react";
 
 
 function Account() {
-    const liffId = "2003132004-R8W9JPw8"
+//     const liffId = "2003132004-R8W9JPw8"
 
-const handleLogout = () => {
-    liff.logout()
-    window.location.reload()
-}
-    const { setlineProfile } = useMyContext();
-    useEffect(() => {
-        const main = async () => {
-            await liff.init({ liffId })
-            if (!liff.isLoggedIn()) {
-                liff.login()
-                return
-            }
+// const handleLogout = () => {
+//     liff.logout()
+//     window.location.reload()
+// }
+//     const { setlineProfile } = useMyContext();
+//     useEffect(() => {
+//         const main = async () => {
+//             await liff.init({ liffId })
+//             if (!liff.isLoggedIn()) {
+//                 liff.login()
+//                 return
+//             }
 
-            const lineProfile = await liff.getProfile()
-            setlineProfile(lineProfile)
-            // setlineProfile('mac');
-        }
+//             const lineProfile = await liff.getProfile()
+//             setlineProfile(lineProfile)
+//             // setlineProfile('mac');
+//         }
 
-        try {
-            main()
-        } catch (err) {
-            console.log(err)
-        }
-    }, [])
-    const {lineProfile} = useMyContext();
+//         try {
+//             main()
+//         } catch (err) {
+//             console.log(err)
+//         }
+//     }, [])
+//     const {lineProfile} = useMyContext();
     // console.log(lineProfile);
     const user = {
         name: 'lineProfile.diplayName',
