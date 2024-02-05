@@ -10,40 +10,14 @@ import { useEffect } from "react";
 
 
 function Account() {
-//     const liffId = "2003132004-R8W9JPw8"
-
-// const handleLogout = () => {
-//     liff.logout()
-//     window.location.reload()
-// }
-//     const { setlineProfile } = useMyContext();
-//     useEffect(() => {
-//         const main = async () => {
-//             await liff.init({ liffId })
-//             if (!liff.isLoggedIn()) {
-//                 liff.login()
-//                 return
-//             }
-
-//             const lineProfile = await liff.getProfile()
-//             setlineProfile(lineProfile)
-//             // setlineProfile('mac');
-//         }
-
-//         try {
-//             main()
-//         } catch (err) {
-//             console.log(err)
-//         }
-//     }, [])
-    const {lineProfile} = useMyContext();
-    console.log(lineProfile);
-    const user = {
-        name: lineProfile.diplayName,
-        photo:lineProfile.pictureUrl,
-        pet_id: "001",
-        user_id: lineProfile.userId
+    const storedLineProfile = JSON.parse(sessionStorage.getItem('lineProfile')) || {};
     
+    // Use storedLineProfile if available, otherwise use lineProfile from context
+    const user = {
+        name: storedLineProfile.displayName || lineProfile.displayName,
+        photo: storedLineProfile.pictureUrl || lineProfile.pictureUrl,
+        pet_id: "001",
+        user_id: storedLineProfile.userId || lineProfile.userId
     };
     
     return (
