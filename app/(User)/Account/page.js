@@ -5,13 +5,43 @@ import Addpetbutton from "@/app/componenets/Addpetbutton";
 import './page.css'
 import Petprofile from "@/app/componenets/Petprofile";
 import { useMyContext } from '../../Handlers/Mycontext';
+import liff from '@line/liff';
+
+
+const liffId = "2003132004-R8W9JPw8"
+
+const handleLogout = () => {
+    liff.logout()
+    window.location.reload()
+}
 function Account() {
-    // const {lineProfile} = useMyContext();
-    // console.log(lineProfile);
+    const { setlineProfile } = useMyContext();
+    useEffect(() => {
+        const main = async () => {
+            await liff.init({ liffId })
+            if (!liff.isLoggedIn()) {
+                liff.login()
+                return
+            }
+
+            const lineProfile = await liff.getProfile()
+            setlineProfile(lineProfile)
+            // setlineProfile('mac');
+        }
+
+        try {
+            main()
+        } catch (err) {
+            console.log(err)
+        }
+    }, [])
+    const {lineProfile} = useMyContext();
+    console.log(lineProfile);
     const user = {
-        name: 'mac',
-        photo: '',
+        name: lineProfile.diplayName,
+        photo: lineProfile.pictureUrl,
         pet_id: "001",
+        user_id: lineProfile.userId
     
     };
     
