@@ -15,10 +15,10 @@ function Account() {
     : {};    
     // Use storedLineProfile if available, otherwise use lineProfile from context
     const user = {
-        name: storedLineProfile.displayName || lineProfile.displayName,
-        photo: storedLineProfile.pictureUrl || lineProfile.pictureUrl,
+        name: storedLineProfile.displayName,
+        photo: storedLineProfile.pictureUrl ,
         pet_id: "001",
-        user_id: storedLineProfile.userId || lineProfile.userId
+        user_id: storedLineProfile.userId 
     };
     
     return (
