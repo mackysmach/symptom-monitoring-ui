@@ -3,6 +3,8 @@
 import liff from '@line/liff'
 import { useState, useEffect } from 'react'
 import { useMyContext } from './Handlers/Mycontext'
+import { useHistory } from 'react-router-dom';  // Import useHistory
+
 
 const liffId ="2003132004-R8W9JPw8"
 
@@ -25,6 +27,7 @@ const {setlineProfile,lineProfile} = useMyContext();
             const lineProfile = await liff.getProfile()
             setlineProfile(lineProfile)
             sessionStorage.setItem('lineProfile', JSON.stringify(lineProfile));
+            history.push('/Account');  // Replace '/redirect-page' with the desired URL
 
         }
 
