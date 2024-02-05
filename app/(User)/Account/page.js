@@ -5,7 +5,6 @@ import Addpetbutton from "@/app/componenets/Addpetbutton";
 import './page.css'
 import Petprofile from "@/app/componenets/Petprofile";
 import { useMyContext } from '../../Handlers/Mycontext';
-import liff from '@line/liff';
 import { useEffect } from "react";
 
 

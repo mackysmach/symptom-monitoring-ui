@@ -2,6 +2,9 @@
 
 import React from 'react';
 import { useMyContext } from '../Handlers/Mycontext';
+import { useEffect } from 'react';
+import liff from '@line/liff';
+
 const liffId = "2003132004-R8W9JPw8"
 
 const handleLogout = () => {
