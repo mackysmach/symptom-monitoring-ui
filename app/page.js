@@ -16,6 +16,8 @@ const handleLogout = () => {
 
 export default function Home() {
 const {setlineProfile,lineProfile} = useMyContext();
+const history = useHistory();  // Initialize useHistory
+
     useEffect(() => {
         const main = async () => {
             await liff.init({ liffId })
