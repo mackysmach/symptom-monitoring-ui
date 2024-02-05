@@ -3,6 +3,7 @@ import liff from '@line/liff';
 import { useState, useEffect } from 'react'
 import React from 'react';
 import { useMyContext } from '../Handlers/Mycontext';
+import { MyProvider } from '../Handlers/Mycontext';
 
 const liffId = "2003132004-R8W9JPw8"
 
@@ -15,14 +16,14 @@ export default function User_Layout({ children }) {
     const { setlineProfile } = useMyContext();
     useEffect(() => {
         const main = async () => {
-                await liff.init({ liffId })
-                if (!liff.isLoggedIn()) {
-                    liff.login()
-                    return
-                }
+            await liff.init({ liffId })
+            if (!liff.isLoggedIn()) {
+                liff.login()
+                return
+            }
 
-                const lineProfile = await liff.getProfile()
-                setlineProfile(lineProfile)
+            const lineProfile = await liff.getProfile()
+            setlineProfile(lineProfile)
             // setlineProfile('mac');
         }
 
@@ -36,7 +37,7 @@ export default function User_Layout({ children }) {
 
     return (
         <>
-
+            <MyProvider>
                 <div className="pt-5">
                     <div className='mb-4 '>
 
@@ -44,7 +45,7 @@ export default function User_Layout({ children }) {
                     </div>
 
                 </div>
-
+            </MyProvider>
         </>
     );
 }

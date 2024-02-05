@@ -3,7 +3,6 @@ import './globals.css'
 import "bootstrap/dist/css/bootstrap.css";
 import Head from 'next/head';
 import Navbar_basic from './componenets/Navbar';
-import { MyProvider } from './Handlers/Mycontext';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,7 +17,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
 
-      <MyProvider>
         <body className={inter.className}>
           <main className="h-screen flex flex-col justify-center items-center">
             <Navbar_basic />
@@ -27,7 +25,6 @@ export default function RootLayout({ children }) {
             </div>
           </main>
         </body>
-      </MyProvider>
     </html>
   )
 }
