@@ -24,7 +24,7 @@ const {setlineProfile,lineProfile} = useMyContext();
 
             const lineProfile = await liff.getProfile()
             setlineProfile(lineProfile)
-            sessionStorage.setItem('lineProfile', JSON.stringify(userProfile));
+            sessionStorage.setItem('lineProfile', JSON.stringify(lineProfile));
 
         }
 
