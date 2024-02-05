@@ -1,51 +1,51 @@
-// 'use client'
+'use client'
 
-// import liff from '@line/liff'
-// import { useState, useEffect } from 'react'
+import liff from '@line/liff'
+import { useState, useEffect } from 'react'
 
-// const liffId ="2003132004-R8W9JPw8"
+const liffId ="2003132004-R8W9JPw8"
 
-// const handleLogout = () => {
-//     liff.logout()
-//     window.location.reload()
-// }
+const handleLogout = () => {
+    liff.logout()
+    window.location.reload()
+}
 
 
-// export default function Home() {
-//     const [lineProfile, setlineProfile] = useState({})
+export default function Home() {
+    const [lineProfile, setlineProfile] = useState({})
 
-//     useEffect(() => {
-//         const main = async () => {
-//             await liff.init({ liffId })
-//             if (!liff.isLoggedIn()) {
-//                 liff.login()
-//                 return
-//             }
+    useEffect(() => {
+        const main = async () => {
+            await liff.init({ liffId })
+            if (!liff.isLoggedIn()) {
+                liff.login()
+                return
+            }
 
-//             const lineProfile = await liff.getProfile()
-//             setlineProfile(lineProfile)
-//         }
+            const lineProfile = await liff.getProfile()
+            setlineProfile(lineProfile)
+        }
 
-//         try {
-//             main()
-//         } catch (err) {
-//             console.log(err)
-//         }
-//     }, [])
+        try {
+            main()
+        } catch (err) {
+            console.log(err)
+        }
+    }, [])
 
-//     // console.log(lineProfile)
+    // console.log(lineProfile)
 
    
-//     return (
-//         <>
-//             <div>
-//                 <img src={lineProfile.pictureUrl} />
-//                 <h1>{lineProfile.displayName}</h1>
-//                 <h2>{lineProfile.userId}</h2>
-//             </div>
+    return (
+        <>
+            <div>
+                <img src={lineProfile.pictureUrl} />
+                <h1>{lineProfile.displayName}</h1>
+                <h2>{lineProfile.userId}</h2>
+            </div>
 
-//             <button onClick={handleLogout}>logout</button>
-//         </>
+            <button onClick={handleLogout}>logout</button>
+        </>
 
-//     )
-// }
+    )
+}

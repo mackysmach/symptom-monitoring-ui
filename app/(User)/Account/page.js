@@ -6,13 +6,13 @@ import './page.css'
 import Petprofile from "@/app/componenets/Petprofile";
 import { useMyContext } from '../../Handlers/Mycontext';
 function Account() {
-    const {lineProfile} = useMyContext();
-    console.log(lineProfile);
+    // const {lineProfile} = useMyContext();
+    // console.log(lineProfile);
     const user = {
-        name: lineProfile.displayName,
-        photo: lineProfile.pictureUrl,
+        name: 'mac',
+        photo: '',
         pet_id: "001",
-        user_id: lineProfile.userId
+    
     };
     
     return (
