@@ -9,35 +9,36 @@ import liff from '@line/liff';
 import { useEffect } from "react";
 
 
-const liffId = "2003132004-R8W9JPw8"
+
+function Account() {
+    const liffId = "2003132004-R8W9JPw8"
 
 const handleLogout = () => {
     liff.logout()
     window.location.reload()
 }
-function Account() {
-    // const { setlineProfile } = useMyContext();
-    // useEffect(() => {
-    //     const main = async () => {
-    //         await liff.init({ liffId })
-    //         if (!liff.isLoggedIn()) {
-    //             liff.login()
-    //             return
-    //         }
+    const { setlineProfile } = useMyContext();
+    useEffect(() => {
+        const main = async () => {
+            await liff.init({ liffId })
+            if (!liff.isLoggedIn()) {
+                liff.login()
+                return
+            }
 
-    //         const lineProfile = await liff.getProfile()
-    //         setlineProfile(lineProfile)
-    //         // setlineProfile('mac');
-    //     }
+            const lineProfile = await liff.getProfile()
+            setlineProfile(lineProfile)
+            // setlineProfile('mac');
+        }
 
-    //     try {
-    //         main()
-    //     } catch (err) {
-    //         console.log(err)
-    //     }
-    // }, [])
-    // const {lineProfile} = useMyContext();
-    // console.log(lineProfile);
+        try {
+            main()
+        } catch (err) {
+            console.log(err)
+        }
+    }, [])
+    const {lineProfile} = useMyContext();
+    console.log(lineProfile);
     const user = {
         name: 'lineProfile.diplayName',
         photo:' lineProfile.pictureUrl',
