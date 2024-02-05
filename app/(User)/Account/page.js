@@ -16,28 +16,28 @@ const handleLogout = () => {
     window.location.reload()
 }
 function Account() {
-    const { setlineProfile } = useMyContext();
-    useEffect(() => {
-        const main = async () => {
-            await liff.init({ liffId })
-            if (!liff.isLoggedIn()) {
-                liff.login()
-                return
-            }
+    // const { setlineProfile } = useMyContext();
+    // useEffect(() => {
+    //     const main = async () => {
+    //         await liff.init({ liffId })
+    //         if (!liff.isLoggedIn()) {
+    //             liff.login()
+    //             return
+    //         }
 
-            const lineProfile = await liff.getProfile()
-            setlineProfile(lineProfile)
-            // setlineProfile('mac');
-        }
+    //         const lineProfile = await liff.getProfile()
+    //         setlineProfile(lineProfile)
+    //         // setlineProfile('mac');
+    //     }
 
-        try {
-            main()
-        } catch (err) {
-            console.log(err)
-        }
-    }, [])
-    const {lineProfile} = useMyContext();
-    console.log(lineProfile);
+    //     try {
+    //         main()
+    //     } catch (err) {
+    //         console.log(err)
+    //     }
+    // }, [])
+    // const {lineProfile} = useMyContext();
+    // console.log(lineProfile);
     const user = {
         name: lineProfile.diplayName,
         photo: lineProfile.pictureUrl,
