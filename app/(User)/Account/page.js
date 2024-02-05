@@ -39,10 +39,10 @@ function Account() {
     // const {lineProfile} = useMyContext();
     // console.log(lineProfile);
     const user = {
-        name: lineProfile.diplayName,
-        photo: lineProfile.pictureUrl,
+        name: 'lineProfile.diplayName',
+        photo:' lineProfile.pictureUrl',
         pet_id: "001",
-        user_id: lineProfile.userId
+        user_id: 'lineProfile.userId'
     
     };
     
