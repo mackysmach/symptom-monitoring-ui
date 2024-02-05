@@ -6,6 +6,7 @@ import './page.css'
 import Petprofile from "@/app/componenets/Petprofile";
 import { useMyContext } from '../../Handlers/Mycontext';
 import liff from '@line/liff';
+import { useEffect } from "react";
 
 
 const liffId = "2003132004-R8W9JPw8"

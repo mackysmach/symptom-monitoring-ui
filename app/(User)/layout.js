@@ -1,8 +1,6 @@
 // 'use client'
-import liff from '@line/liff';
-import { useState, useEffect } from 'react'
+
 import React from 'react';
-import { useMyContext } from '../Handlers/Mycontext';
 
 // const liffId = "2003132004-R8W9JPw8"
 
