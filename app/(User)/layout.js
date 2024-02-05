@@ -18,6 +18,7 @@ export default function User_Layout({ children }) {
         const main = async () => {
             await liff.init({ liffId })
             if (!liff.isLoggedIn()) {
+                console.log(liff.isLoggedIn)
                 liff.login()
                 return
             }
