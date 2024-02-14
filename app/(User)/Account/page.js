@@ -1,3 +1,4 @@
+'use client'
 import Profile from "@/app/componenets/Userprofile";
 import { Row, Col, Container } from "react-bootstrap";
 import Addpetbutton from "@/app/componenets/Addpetbutton";

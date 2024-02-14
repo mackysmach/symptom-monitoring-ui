@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import { useState, useRef } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
@@ -23,6 +24,7 @@ function Addpetbutton(user) {
     }
 
 
+    
     const handleSubmit = async (event) => {
         event.preventDefault();
 
