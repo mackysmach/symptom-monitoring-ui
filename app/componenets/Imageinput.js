@@ -3,14 +3,14 @@ import React, { useState } from 'react';
 import { Modal, Button, Form, Col, Row } from 'react-bootstrap';
 import { extract_drug_label } from '../Handlers/extract_drug_label';
 import DrugInfoForm from './Druginfo';
-const ImageInputModal = () => {
+const ImageInputModal = ({user_id,pet_id}) => {
     const [imageData, setImageData] = useState(null);
     const [fileInput, setFileInput] = useState(null);
     const [showModal, setShowModal] = useState(false);
-    const [drug_label,setDrug_label] = useState();
+    const [drug_label,setDrug_label] = useState({});
 
 
-
+console.log(user_id)
     const handleImageChange = (e) => {
         const file = e.target.files[0];
         setFileInput(e.target.files[0]);
@@ -24,16 +24,18 @@ const ImageInputModal = () => {
             reader.readAsDataURL(file);
         }
     };
-
+// console.log(user_id)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (fileInput) {
-            setDrug_label(await extract_drug_label(fileInput));
+            setDrug_label(await extract_drug_label(fileInput,user_id));
+           
         }
 
         handleCloseModal();
     };
+    // console.log(drug_label)
 
     const handleShowModal = () => {
         setShowModal(true);
@@ -78,7 +80,7 @@ const ImageInputModal = () => {
                     </Button>
                 </Modal.Footer>
             </Modal>
-            <DrugInfoForm drugInfo={drug_label}/>
+            <DrugInfoForm drugInfo={drug_label} user_id={user_id} pet_id={pet_id}/>
         </div>
     );
 };

@@ -1,10 +1,10 @@
-export const extract_drug_label = async (imageFile) => {
+export const extract_drug_label = async (imageFile,user_id) => {
     const fileFormData = new FormData();
                     fileFormData.append('file', imageFile);
+                    fileFormData.append('user_id',user_id)
 
-                    const fileResponse = await fetch(`Http://localhost:8000/drug_label/extract/`, {
+                    const fileResponse = await fetch(`http://localhost:8080/drug_label_extraction`, {
                         method: 'POST',
-                        credentials: "include",
                         body: fileFormData,
                     });
                     const result = await fileResponse.json()
