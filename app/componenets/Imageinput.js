@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from 'react';
 import { Modal, Button, Form, Col, Row } from 'react-bootstrap';
 import { extract_drug_label } from '../Handlers/extract_drug_label';
