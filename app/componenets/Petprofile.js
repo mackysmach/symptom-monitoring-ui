@@ -1,3 +1,4 @@
+'use client'
 import React, { useEffect, useState } from 'react';
 import { Image, Container, Row, Col } from 'react-bootstrap';
 import Link from 'next/link';
