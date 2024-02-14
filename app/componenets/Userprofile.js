@@ -1,5 +1,4 @@
 // components/Profile.js
-'use client'
 import React from 'react';
 import { Image, Container, Row, Col } from 'react-bootstrap';
 
