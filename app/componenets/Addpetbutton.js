@@ -50,7 +50,7 @@ console.log(trigger)
 
             } catch (error) {
                 console.error('Error:', error);
-                toast.error('Error adding video. Please try again.');
+                toast.error('Error adding pet. Please try again.');
 
             }
         } else {
