@@ -35,14 +35,15 @@ function Navbar_basic() {
 
                     <Offcanvas.Body >
                         <ul className="list-unstyled">
-                            <li className="mb-4 text-center">
-                                <a href="#" className="menu">Reminder</a>
-                            </li>
+                           
                             <li className="mb-4 text-center">
                                 <a href="../Account" className="menu">Account</a>
                             </li>
                             <li className="mb-4 text-center">
-                                <a href="../Videomanager" className="menu">Setting</a>
+                                <a href="../TimeSettings" className="menu">Setting</a>
+                            </li>
+                            <li className="mb-4 text-center">
+                                <a href="../Search" className="menu">Search</a>
                             </li>
 
                         </ul>

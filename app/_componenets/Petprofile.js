@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import { Image, Container, Row, Col } from 'react-bootstrap';
 import Link from 'next/link';
-import { getallpet } from '../Handlers/Getallpet';
-import { useMyContext } from '../Handlers/Mycontext';
+import { getallpet } from '../_Handlers/Getallpet';
+import { useMyContext } from '../_Handlers/Mycontext';
 
 const Petprofile = ({ user }) => {
     const { trigger, setTrigger } = useMyContext();
@@ -11,9 +11,11 @@ const Petprofile = ({ user }) => {
 
     useEffect(() => {
         getallpet(user.user_id).then(data => {
-            if (data) {
+            if (Array.isArray(data)) { // Check if data is an array
                 setPets(data);
-            } 
+            } else {
+                setPets([]); // Set pets to an empty array if data is not an array
+            }
         });
     }, [trigger]);
 

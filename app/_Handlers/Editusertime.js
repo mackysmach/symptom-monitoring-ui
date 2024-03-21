@@ -1,8 +1,8 @@
-const Addperiodreminder = async (jsonData) => {
-    const url = 'http://localhost:8080/reminder/period';
-
+const Editreminder = async (jsonData) => {
+    const url = `http://localhost:8080/user/`;
+    
     const config = {
-        method: "POST",
+        method: "PUT",
         headers: {
             "Content-Type": "application/json",
         },
@@ -16,6 +16,8 @@ const Addperiodreminder = async (jsonData) => {
     } catch (error) {
         console.error('Error:', error);
     }
-};
+}
 
-export default Addperiodreminder;
+export default Editreminder;
+
+

@@ -3,9 +3,9 @@ import React from 'react';
 import { useState, useRef } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
 import './Addpetbutton.css'
-import Addnewpet from '../Handlers/Addnewpet';
+import Addnewpet from '../_Handlers/Addnewpet';
 import { ToastContainer, toast } from 'react-toastify';
-import { useMyContext } from '../Handlers/Mycontext';
+import { useMyContext } from '../_Handlers/Mycontext';
 
 function Addpetbutton(user) {
     const [showModal, setShowModal] = useState(false);

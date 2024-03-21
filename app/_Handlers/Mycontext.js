@@ -7,10 +7,11 @@ const MyContext = createContext();
 export const MyProvider = ({ children }) => {
     const [lineProfile, setlineProfile] = useState({});
     const [trigger, setTrigger] = useState(0);
+    const [sharedState, setSharedState] = useState('');
 
 
     return (
-        <MyContext.Provider value={{ lineProfile, setlineProfile, trigger, setTrigger }}>
+        <MyContext.Provider value={{  sharedState, setSharedState,lineProfile, setlineProfile, trigger, setTrigger }}>
             {children}
         </MyContext.Provider>
     );

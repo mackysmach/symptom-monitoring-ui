@@ -1,16 +1,15 @@
 'use client'
 import React, { useState } from 'react';
-import { Modal, Button, Form, Col, Row } from 'react-bootstrap';
-import { extract_drug_label } from '../Handlers/extract_drug_label';
+import { Accordion, Card, Button, Form, Col, Row, Modal } from 'react-bootstrap';
+import { extract_drug_label } from '../_Handlers/extract_drug_label';
 import DrugInfoForm from './Druginfo';
-const ImageInputModal = ({user_id,pet_id}) => {
+
+const ImageInputModal = ({ user_id, pet_id }) => {
     const [imageData, setImageData] = useState(null);
     const [fileInput, setFileInput] = useState(null);
     const [showModal, setShowModal] = useState(false);
-    const [drug_label,setDrug_label] = useState({});
+    const [drug_label, setDrug_label] = useState({});
 
-
-console.log(user_id)
     const handleImageChange = (e) => {
         const file = e.target.files[0];
         setFileInput(e.target.files[0]);
@@ -24,18 +23,14 @@ console.log(user_id)
             reader.readAsDataURL(file);
         }
     };
-// console.log(user_id)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (fileInput) {
-            setDrug_label(await extract_drug_label(fileInput,user_id));
-           
+            setDrug_label(await extract_drug_label(fileInput, user_id));
         }
-
         handleCloseModal();
     };
-    // console.log(drug_label)
 
     const handleShowModal = () => {
         setShowModal(true);
@@ -44,26 +39,23 @@ console.log(user_id)
     const handleCloseModal = () => {
         setShowModal(false);
     };
+
     return (
         <div>
             <Button variant="primary" onClick={handleShowModal}>
-                Select Label Image
+                เลือกรูปภาพฉลากยา
             </Button>
-            <Modal show={showModal} onHide={handleCloseModal}>
+            <Modal show={showModal} onHide={handleCloseModal} placement="bottom">
                 <Modal.Header closeButton>
-                    <Modal.Title>Upload Image</Modal.Title>
+                    <Modal.Title>อัพโหลดรูปภาพ</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form onSubmit={handleSubmit}>
                         <Form.Group as={Row} controlId="imageInput">
-                            <Form.Label column sm="2">
-                                Upload Image
-                            </Form.Label>
                             <Col sm="10">
                                 <Form.Control type="file" onChange={handleImageChange} />
                             </Col>
                         </Form.Group>
-
                         {imageData && (
                             <div>
                                 <img src={imageData} alt="Selected" style={{ maxWidth: '100%', height: 'auto' }} />
@@ -73,14 +65,14 @@ console.log(user_id)
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleCloseModal}>
-                        Close
+                        ยกเลิก
                     </Button>
                     <Button variant="primary" onClick={handleSubmit}>
-                        Submit Image
+                        ยืนยัน
                     </Button>
                 </Modal.Footer>
             </Modal>
-            <DrugInfoForm drugInfo={drug_label} user_id={user_id} pet_id={pet_id}/>
+            <DrugInfoForm drugInfo={drug_label} user_id={user_id} pet_id={pet_id} />
         </div>
     );
 };
